@@ -1,0 +1,26 @@
+<div id="photos">
+    <a href="/img/sha/DSC_5587.jpg" title="DSC5587.jpg">
+        <img src="/img/sha/DSC_5587.jpg">
+    </a>
+    <a href="/img/sha/DSC_5590.jpg" title="DSC5590.jpg">
+        <img src="/img/sha/DSC_5590.jpg">
+    </a>
+    <a href="/img/sha/DSC_5603.jpg" title="DSC5603.jpg">
+        <img src="/img/sha/DSC_5603.jpg">
+    </a>
+</div>
+
+<div id="blueimp-gallery-carousel" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<script>
+    blueimp.Gallery(document.getElementById('photos').getElementsByTagName('a'), {
+        container: '#blueimp-gallery-carousel'
+    });
+</script>
