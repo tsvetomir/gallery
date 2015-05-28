@@ -1,14 +1,12 @@
 <div id="photos">
-    <a href="/img/sha/DSC_5587.jpg" title="DSC5587.jpg">
-        <img src="/img/sha/DSC_5587.jpg">
+    {{#each files}}
+    <a href="/img/{{root}}/{{name}}" title="{{name}}">
+        <img src="/img/{{root}}/{{thumb}}">
     </a>
-    <a href="/img/sha/DSC_5590.jpg" title="DSC5590.jpg">
-        <img src="/img/sha/DSC_5590.jpg">
-    </a>
-    <a href="/img/sha/DSC_5603.jpg" title="DSC5603.jpg">
-        <img src="/img/sha/DSC_5603.jpg">
-    </a>
+    {{/each}}
 </div>
+
+{{ id }}
 
 <div id="blueimp-gallery-carousel" class="blueimp-gallery">
     <div class="slides"></div>
@@ -21,6 +19,10 @@
 
 <script>
     blueimp.Gallery(document.getElementById('photos').getElementsByTagName('a'), {
-        container: '#blueimp-gallery-carousel'
+        container: '#blueimp-gallery-carousel',
+        closeOnEscape: false,
+        closeOnSlideClick: false,
+        closeOnSwipeUpOrDown: false,
+        carousel: true
     });
 </script>
