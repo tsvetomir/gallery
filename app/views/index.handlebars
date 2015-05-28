@@ -1,7 +1,6 @@
 <div id="photos">
     {{#each files}}
-    <a href="/img/{{root}}/{{name}}" title="{{name}}">
-        <img src="/img/{{root}}/{{thumb}}">
+    <a href="/{{root}}/{{name}}" title="{{name}}">
     </a>
     {{/each}}
 </div>
@@ -20,9 +19,8 @@
 <script>
     blueimp.Gallery(document.getElementById('photos').getElementsByTagName('a'), {
         container: '#blueimp-gallery-carousel',
-        closeOnEscape: false,
-        closeOnSlideClick: false,
-        closeOnSwipeUpOrDown: false,
-        carousel: true
+        carousel: true,
+        enableKeyboardNavigation: true,
+        closeOnEscape: true
     });
 </script>
