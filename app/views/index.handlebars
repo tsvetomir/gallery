@@ -1,13 +1,10 @@
 <div id="photos">
     {{#each files}}
-    <a href="{{../galleryUrl}}/{{name}}" title="{{name}}">
-    </a>
+    <a href="{{../galleryUrl}}/{{name}}" title="{{name}}"></a>
     {{/each}}
 </div>
 
-{{ id }}
-
-<div id="blueimp-gallery-carousel" class="blueimp-gallery">
+<div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-controls">
     <div class="slides"></div>
     <h3 class="title"></h3>
     <a class="prev">‹</a>
@@ -16,6 +13,7 @@
     <ol class="indicator"></ol>
 </div>
 
+<script src="/components/blueimp-gallery/js/blueimp-gallery.min.js"></script>
 <script>
     blueimp.Gallery(document.getElementById('photos').getElementsByTagName('a'), {
         container: '#blueimp-gallery-carousel',
