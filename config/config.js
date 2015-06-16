@@ -22,7 +22,7 @@ var config = {
         port: 80,
 
         baseUrl: "/gallery-static",
-        basePath: "/usr/local/www/gallery-static"
+        basePath: "/usr/local/gallery-static"
     }
 };
 
