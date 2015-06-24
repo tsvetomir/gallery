@@ -16,7 +16,7 @@ function unauthorized() {
 }
 
 router.param('id', function(req, res, next, id) {
-    var match = id.match(/\w{8}/);
+    var match = id.match(/[A-Z0-9-_]*/i);
     if (match) {
         var galleryId = match[0];
         var galleryPath = path.join(config.basePath, match[0]);
@@ -49,6 +49,7 @@ router.get('/:id', function (req, res, next) {
     res.render('index', {
         title: 'Gallery',
         files: req.files,
+        rootUrl: config.rootUrl,
         galleryUrl: config.baseUrl + "/" + req.galleryId
     });
 });

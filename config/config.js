@@ -10,6 +10,7 @@ var config = {
         },
         port: 3000,
 
+        rootUrl: "",
         baseUrl: "/img",
         basePath: path.join(root, "public", "img")
     },
@@ -19,10 +20,11 @@ var config = {
         app: {
             name: "gallery"
         },
-        port: 80,
+        port: 3000,
 
+        rootUrl: "/gallery",
         baseUrl: "/gallery-static",
-        basePath: "/usr/local/gallery-static"
+        basePath: "/gallery"
     }
 };
 
