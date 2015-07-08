@@ -20,7 +20,7 @@ var config = {
         app: {
             name: "gallery"
         },
-        port: 3000,
+        port: 8080,
 
         rootUrl: "/gallery",
         baseUrl: "/gallery-static",
