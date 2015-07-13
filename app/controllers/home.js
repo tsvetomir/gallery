@@ -26,14 +26,29 @@ router.param('id', function(req, res, next, id) {
             } else {
                 req.galleryId = galleryId;
                 req.files = files.filter(function(name) {
-                    return path.extname(name).toLowerCase() in { ".jpeg": true, ".jpg": true };
+                    var jpeg = path.extname(name).toLowerCase() in { ".jpeg": true, ".jpg": true };
+                    var responsive = name.match(/-\d+px\./);
+                    return jpeg && !responsive;
                 }).map(function(name) {
                     return {
+                        basename: path.basename(name, path.extname(name)),
                         name: name
                     };
                 });
 
-                next();
+                fs.readFile(
+                    path.join(galleryPath, 'responsive.json'),
+                    { encoding: 'utf8' },
+                    function(err, data) {
+                        if (!err) {
+                            var config = JSON.parse(data);
+                            req.responsive = config.enabled;
+                            req.resolutions = config.resolutions;
+                        }
+
+                        next();
+                    }
+                );
             }
         });
     } else {
@@ -49,6 +64,8 @@ router.get('/:id', function (req, res, next) {
     res.render('index', {
         title: 'Gallery',
         files: req.files,
+        responsive: req.responsive,
+        resolutions: req.resolutions,
         rootUrl: config.rootUrl,
         galleryUrl: config.baseUrl + "/" + req.galleryId
     });
