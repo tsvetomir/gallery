@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 RESOLUTIONS=(480 640 960 1100 1600)
 RES_ARRAY=$(IFS=, ; echo "${RESOLUTIONS[*]}")
