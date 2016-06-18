@@ -26,7 +26,9 @@ router.param('id', function(req, res, next, id) {
             } else {
                 req.galleryId = galleryId;
                 req.files = files.filter(function(name) {
-                    return path.extname(name).toLowerCase() in { ".jpeg": true, ".jpg": true };
+                    var jpeg = path.extname(name).toLowerCase() in { ".jpeg": true, ".jpg": true };
+                    var responsive = name.match(/-\d+px\./);
+                    return jpeg && !responsive;
                 }).map(function(name) {
                     return {
                         name: name
